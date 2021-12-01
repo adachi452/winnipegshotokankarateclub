@@ -41,8 +41,8 @@
         
         if (file_is_an_image($temporary_image_path, $new_image_path)) {
           $resizedImage = new ImageResize($new_image_path);
-          $image->scale(30);
-          $image->save('image2.jpg');
+          $resizedImage ->scale(30);
+          $resizedImage ->save('image2.jpg');
             move_uploaded_file($temporary_image_path, $new_image_path);
         }
     } 
