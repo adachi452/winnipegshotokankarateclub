@@ -1,0 +1,258 @@
+h2
+{
+	color:black;
+	font-size: 16px;
+	text-align: center;
+}
+
+div.blog_post img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+h1
+{
+	color: black;
+	text-align-last: center;
+}
+
+h3
+{
+	color:black;
+	font-family: algerian, sans-serif;
+	font-size: 18px;
+	text-align: center;
+}
+
+ol
+{
+	color:black;
+	font-family: algerian, sans-serif;
+	font-size: 18px;
+	text-align: center;
+}
+
+h4
+{
+	color:red;
+	font-size: 18px;
+	text-align-last: center;
+	text-align: center;
+	align-content: center;
+}
+
+h5
+{
+	color:black;
+	font-family: algerian, sans-serif;
+	font-size: 15px;
+	text-align: center;
+}
+
+h6
+{
+	color:black;
+	font-family: arial, sans-serif;
+	font-size: 15px;
+	text-align: center;
+	border-style: solid;
+}
+ul
+{
+
+	font-family: arial, sans-serif;
+	font-size: 15px;
+	text-align: center;
+}
+
+body
+{
+	background:white;
+	width:800px;
+	/*font-family:myFont;*/
+	padding: 0px 10px 0px 10px;
+	margin: 0px auto;
+}
+
+nav.categories
+{
+	width: 50%;
+	background-color: #acb2b1;
+	border:2px #000 solid;
+	font-weight: bold;
+	color: #FFF;
+	margin: 0px auto;
+}
+
+nav
+{
+	width: 100%;
+	background-color: #acb2b1;
+	border:2px #000 solid;
+	font-weight: bold;
+	color: #FFF;
+	margin: 0px auto;
+}
+
+nav ul
+{
+	list-style: none;
+	padding: 0px;
+}
+nav ul li
+{
+	padding: 10px;
+	border:1px #606 solid;
+}
+
+nav ul li a
+{
+	color: #000000;
+	text-decoration: none;
+	font-size: 1.3em;
+}
+
+nav ul li:hover, nav li a:focus
+{
+	background-color: #6D6;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+@media(min-width:640px)
+{
+	header > h1
+	{
+		font-size: 2.5em;
+	}
+
+	nav ul
+	{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+
+	img
+	{
+		width: 50%
+		height: auto;
+	}
+
+footer
+{
+	bottom: 0;
+	width: 100%;
+	position: relative;
+	top: -10px; 
+	text-align: center; 
+}
+
+footer p
+{
+	bottom: 0;
+	font-size: 9px;
+	text-decoration: none;
+	left:0px;
+	margin:0;
+}
+
+footer p.line3
+{
+	font-size: 9px;
+	text-decoration: none;
+	color: grey;
+}
+
+footer a.links2
+{
+
+	font-size: 9px;
+	color: #4f9acd;
+	text-decoration: none;
+	left:0px;
+}
+
+footer a.link3
+{
+	font-size: 9px;
+	text-decoration: none;
+	color: #4f9acd;
+}
+
+footer a.link4
+{
+	font-size: 9px;
+	text-decoration: none;
+	color: #4f9acd;
+}
+
+
+a:link
+{
+	color:blue;
+	text-decoration:none;
+}
+
+a:visited
+{
+	color:red;
+	text-decoration:none;
+}
+
+a:hover
+{
+	color:blue;
+	font-weight:normal;
+}
+
+a:active
+{
+	color:red;
+	text-decoration:none;
+}
+
+.intro
+{
+	width:80%
+	margin:5px auto;
+	background:white;
+	padding:5px;
+	border:4px black;
+}
+
+.bold
+{
+	font-weight:bold;
+}
+
+header, section
+{
+	width:100%;
+	padding:10px;
+	border:#551100 solid 4px;
+	margin:25px 0px;
+	background:#acb2b1;
+	box-sizing:border-box;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+	border-radius:15px;
+	
+	-moz-box-shadow: 5px 5px 5px #888;
+	-webkit-box-shadow: 5px 5px 5px #888;
+	-box-shadow: 5px 5px 5px #888;
+	
+}
+
+@font-face
+{
+	font-family:myFont;
+	src:url("http://www.w3schools.com/css3/Sansation_light.ttf");
+}
