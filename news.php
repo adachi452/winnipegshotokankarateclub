@@ -13,6 +13,17 @@
         // Execution on the DB server is delayed until we execute().
         $statement2->execute(); 
 
+    $query3 = "SELECT * FROM comments";
+
+        // A PDO::Statement is prepared from the query.
+        $statement3 = $db->prepare($query3);
+
+        // Execution on the DB server is delayed until we execute().
+        $statement3->execute();        
+        	
+        $row3 = $statement3->fetch();    	
+
+
 
 
 if ($_GET['categoryid'] == 1) 
@@ -92,7 +103,7 @@ if ($_GET['categoryid'] == 1)
 
 	<div id="wrapper">
         <div id="header">
-            <h3><a href="news.php">Weekley News</a></h3>
+            <h3>Weekley News</h3>
         </div>
     </div>
 
@@ -125,8 +136,10 @@ if ($_GET['categoryid'] == 1)
             <div class='blog_content'>
                 <?php if (strlen($row['Content']) > 200) : ?>
                     <?=$row['Content'] = substr($row['Content'], 0, 200) . "..."?> <a href="show.php?id=<?= $row['postid'] ?>">Read More</a>
+
                 <?php else: ?> 
-                    <?=$row['Content']?>
+                    <?=$row['Content']?>             
+
             <?php endif ?>
             </div>
             </div>
@@ -220,7 +233,7 @@ if ($_GET['categoryid'] == 1)
 
 	<div id="wrapper">
         <div id="header">
-            <h3><a href="news.php">Weekley News</a></h3>
+            <h3>Weekley News</h3>
         </div>
     </div>
 
@@ -245,23 +258,24 @@ if ($_GET['categoryid'] == 1)
     <?php else: ?>    
     
         <?php while($row = $statement->fetch()): ?>
-            
+             
             <div class="blog_post">
                 <h2><a href="show.php?id=<?= $row['postid'] ?>"><?= $row['Title'] ?></a></h2>
-                <p><small><?= $date = date($format, strtotime($row['Time'])) . " - " ?>
-                	<a href="comment.php?id=<?= $row['postid'] ?>">comment</a></small></p>
+                <p><small><?= $date = date($format, strtotime($row['Time'])) . " - " ?></a><a href="comment.php?id=<?= $row['postid'] ?>">comment</a></small></p>
             <div class='blog_content'>
                 <?php if (strlen($row['Content']) > 200) : ?>
                     <?=$row['Content'] = substr($row['Content'], 0, 200) . "..."?> <a href="show.php?id=<?= $row['postid'] ?>">Read More</a>
+
                 <?php else: ?> 
-                    <?=$row['Content']?>
+                    <?=$row['Content']?>       
+
             <?php endif ?>
             </div>
             </div>
         <?php endwhile ?>
-    
+
     <?php endif ?>
-    <?php endif ?>    
+    <?php endif ?>
 </div>
 </div>
 </div>
