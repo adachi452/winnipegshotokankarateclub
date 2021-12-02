@@ -12,6 +12,10 @@
         {
             create();
         }
+        elseif ($_POST['command'] == 'Comment') 
+        {
+            comment();
+        }
         elseif ($_POST['command'] == 'Add') 
         {
             addInstructor();
@@ -39,6 +43,10 @@
         elseif ($_POST['command'] == 'Delete') 
         {
             delete();
+        }
+        elseif ($_POST['command'] == 'Delete Comment') 
+        {
+            deleteComment();
         }
         elseif ($_POST['command'] == 'Delete User') 
         {
@@ -232,6 +240,39 @@
      }  
     }
 
+    function comment(){
+
+    require('connect.php');
+    
+    if ($_POST && isset($_POST['comment'])) {        
+        $comment = filter_input(INPUT_POST, 'comment', FILTER_SANITIZE_FULL_SPECIAL_CHARS);   
+        $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $userid = filter_input(INPUT_POST, 'userid', FILTER_SANITIZE_NUMBER_INT);
+        $postid = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+
+        $query = "INSERT INTO comments (userid, comment, postid, username) VALUES (:userid, :comment, :postid, :username)";
+        $statement = $db->prepare($query);
+        
+        $statement->bindValue(':userid', $userid);
+        $statement->bindValue(':postid', $postid);
+        $statement->bindValue(':comment', $comment);
+        $statement->bindValue(':username', $username);
+
+
+        if($comment == "") 
+        {
+            header('Location: posterror.php');            
+            exit();
+        }
+
+        elseif($statement->execute())
+        {            
+            header('Location: news.php?categoryid=4');            
+            exit();
+        }    
+     }  
+    }
+
     function update()
     {
         require('connect.php');
@@ -407,6 +448,21 @@
         exit();
     }  
 
+    function deleteComment()
+    {
+        require('connect.php');  
+        
+        $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+        $query = "DELETE FROM comments WHERE postid = :id";
+        $statement = $db->prepare($query);
+        $statement->bindValue(':id', $id, PDO::PARAM_INT);
+
+        $statement->execute();
+
+        header('Location: news.php?categoryid=4');            
+        exit();
+    } 
+
 
     function deleteInstructor()
     {
@@ -449,6 +505,7 @@
             session_start();
             $_SESSION['login'] = $row['username'];
             $_SESSION['userlevel'] = $row['userlevel'];
+            $_SESSION['userid'] = $row['userid'];
             $_SESSION['verify'] = $verify;
             header('Location: index.php');            
             exit();
