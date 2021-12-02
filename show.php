@@ -18,6 +18,20 @@
 
      // Fetch the row selected by primary key id.
      $row = $statement->fetch();
+
+     // SQL is written as a String.
+     $query2 = "SELECT * FROM comments WHERE postid = {$_GET['id']}";
+     
+
+     // A PDO::Statement is prepared from the query.
+     $statement2 = $db->prepare($query2);
+
+
+      $statement2->execute(); 
+
+     // Fetch the row selected by primary key id.
+
+
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +66,6 @@
         </ul>
     </nav>
     <?php endif ?>
-  <?= $statement->rowCount() ?>
     <div id="wrapper">
         <div id="header">
             <h1><a href="index.php">News</a></h1>
@@ -71,6 +84,16 @@
             </div>
             </div>
           </div>
+<?php while($row2 = $statement2->fetch()): ?>
+          <div id="all_blogs">
+    <div class="blog_post">
+      <p><small><?= $row2['username'] . " - " . $row2['time'] . " - " ?><a href="deleteComment.php?id=<?= $row2['postid'] ?>">delete</a> </small></p>
+      <div class='blog_content'>
+    <?= $row2['comment'] ?>    
+            </div>
+            </div>
+          </div>
+<?php endwhile ?>
     <?php else: ?> 
     <ul id="menu">
     <li><a href="news.php?categoryid=4" >Back</a></li>
@@ -78,13 +101,24 @@
   <div id="all_blogs">
     <div class="blog_post">
       <h2><?= $row['Title'] ?></h2>
-      <p><small><?= $row['Time'] ?></p>
+      <p><small><?= $row['Time'] ?></small></p>
       <div class='blog_content'>
-    <?= $row['Content'] ?>    
+    <p><?= $row['Content'] ?> </p>
             </div>
             </div>
           </div>
+<?php while($row2 = $statement2->fetch()): ?>
+          <div id="all_blogs">
+    <div class="blog_post">
+      <p><small><?= $row2['username'] . " - " . $row2['time']?></small></p>
+      <div class='blog_content'>
+    <p><?= $row2['comment'] ?></p> 
+            </div>
+            </div>
+          </div>
+<?php endwhile ?>
 <?php endif ?>
+<br>
 <footer>
     <div id="links2">
         <a href="index.php" class = "links2"> Home | </a>
