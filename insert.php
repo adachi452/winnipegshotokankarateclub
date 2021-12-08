@@ -100,6 +100,8 @@
         elseif($statement->execute())
         {
 
+            $msg = "Hello " . $username . "\nYou have successfully registered for Shotokan Karate Website!";
+            mail('rasengan452@gmail.com','Welcome!',$msg);
             header('Location: back.html');            
             exit();
         }    
@@ -244,11 +246,14 @@
 
     require('connect.php');
     
-    if ($_POST && isset($_POST['comment'])) {        
-        $comment = filter_input(INPUT_POST, 'comment', FILTER_SANITIZE_FULL_SPECIAL_CHARS);   
+    if ($_POST && isset($_POST['comment'])){
+         
+        $comment = filter_input(INPUT_POST, 'comment');   
         $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $userid = filter_input(INPUT_POST, 'userid', FILTER_SANITIZE_NUMBER_INT);
         $postid = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+        $user_captcha = filter_input(INPUT_POST, 'captcha_challenge');
+        $captcha = filter_input(INPUT_POST, 'captcha_text');
 
         $query = "INSERT INTO comments (userid, comment, postid, username) VALUES (:userid, :comment, :postid, :username)";
         $statement = $db->prepare($query);
@@ -259,19 +264,20 @@
         $statement->bindValue(':username', $username);
 
 
-        if($comment == "") 
-        {
+        if($comment == "" || $user_captcha == "" || $user_captcha != $captcha) 
+        {            
             header('Location: posterror.php');            
-            exit();
+            exit();            
         }
 
         elseif($statement->execute())
-        {            
-            header('Location: news.php?categoryid=4');            
+        {          
+            header('Location: news.php?categoryid=4');
             exit();
         }    
-     }  
-    }
+     }
+        }
+    
 
     function update()
     {
@@ -511,7 +517,7 @@
             exit();
         }
         else
-        {            
+        {
             header('Location: loginerror.php');            
             exit();
         } 
