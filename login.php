@@ -14,6 +14,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Login</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel = "stylesheet" type = "text/css" href = "shotokanstyles.css" />
 	<script src="formValidate.js"></script>
 </head>

@@ -26,7 +26,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edit</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel = "stylesheet" type = "text/css" href = "shotokanstyles.css" />
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
@@ -72,7 +74,7 @@
             <h1><a href="index.php">Edit Post</a></h1>
         </div> 
 <ul id="menu">
-    <li><a href="news.php" >Back</a></li>
+    <li><a href="news.php?categoryid=4" >Back</a></li>
     <li><a href="create.php" >New Post</a></li>
 </ul> <!-- END div id="menu" -->
   <div id="all_blogs">
@@ -98,7 +100,7 @@
             <footer>
     <div id="links2">
         <a href="index.php" class = "links2"> Home | </a>
-        <a href="news.php" class = "links2">News | </a>
+        <a href="news.php?categoryid=4" class = "links2">News | </a>
         <a href="instructors.php" class = "links2">Instructors </a>
     </div>  
     <div id="line2">

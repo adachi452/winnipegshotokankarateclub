@@ -17,9 +17,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>New Post</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel = "stylesheet" type = "text/css" href = "shotokanstyles.css" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 </head>
 <body>
     <header>
@@ -70,7 +74,7 @@
     <fieldset>
       <legend>New Post</legend>
 
-      <label for="category">Choose a Category:</label>
+      <label for="categories">Choose a Category:</label>
 
     <select name="categories" id="categories">
         <?php while($row = $statement2->fetch()): ?>    
@@ -79,11 +83,11 @@
     </select>
       <p>
         <label for="Title">Title</label>
-        <input name="Title" id="Title" type="text" required="text" />
+        <input name="Title" id="Title" type="text" required/>
       </p>
       <p>
         <label for="Content">Content</label>
-        <textarea name="Content" id="Content" type="text" required="text" /></textarea>
+        <textarea name="Content" id="Content" required></textarea>
       </p>
       <p>
         <input type="submit" name="command" value='Create' />
@@ -91,6 +95,8 @@
     </fieldset>
   </form>
 </div><br>
+
+<script>CKEDITOR.replace('Content');</script>
 
 <footer>
     <div id="links2">

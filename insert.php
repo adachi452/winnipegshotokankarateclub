@@ -77,6 +77,7 @@
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_FULL_SPECIAL_CHARS);         
         $id = filter_input(INPUT_GET, 'userid', FILTER_SANITIZE_NUMBER_INT);
         $userlevel = 1;
+        $msg = "You have successfully registered for Shotokan Karate Website!";
 
         $hash_password = password_hash($password, PASSWORD_DEFAULT);
         $hash_repassword = password_hash($repassword, PASSWORD_DEFAULT);
@@ -99,11 +100,10 @@
         }
 
         elseif($statement->execute())
-        {
+        {            
 
-            $msg = "Hello " . $username . "\nYou have successfully registered for Shotokan Karate Website!";
-            mail('rasengan452@gmail.com','Welcome!',$msg);
-            header('Location: back.html');            
+            mail($email,'Welcome!',$msg);
+            header('Location: back.html');         
             exit();
         }    
      }  

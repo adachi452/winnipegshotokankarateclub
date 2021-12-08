@@ -4,6 +4,7 @@
 
     require('connect.php');
 
+
     // SQL is written as a String.
      $query = "SELECT * FROM blog WHERE postid = :id LIMIT 1";
 
@@ -19,8 +20,6 @@
      // Fetch the row selected by primary key id.
      $row = $statement->fetch();
 
-
-
 ?>
 
 
@@ -34,14 +33,7 @@
     <link rel = "stylesheet" type = "text/css" href = "shotokanstyles.css" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
-    <script type="text/javascript">
 
-
- var refreshButton = document.querySelector(".refresh-captcha");
-refreshButton.onclick = function() {
-  document.querySelector(".captcha-image").src = 'captcha.php?' + Date.now();
-
-</script>
 </head>
 <body>
     <header>
@@ -100,7 +92,6 @@ refreshButton.onclick = function() {
       </p>
       <input type="hidden" name="username" value="<?= $_SESSION['login'] ?>" />
       <input type="hidden" name="userid" value="<?= $_SESSION['userid'] ?>" />
-      <input type="hidden" name="captcha" value="<?= $_SESSION['captcha_text'] ?>" />
 
 <div class="elem-group">
     <label for="captcha">Please Enter the Captcha Text</label>

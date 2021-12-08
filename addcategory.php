@@ -74,7 +74,7 @@
       <legend>New Category</legend>
       <p>
         <label for="categoryname">Category Name</label>
-        <input name="categoryname" id="categoryname" type="text" required="text" />
+        <input name="categoryname" id="categoryname" type="text" required />
       </p>
       <p>
         <input type="submit" name="command" value='Create Category' />

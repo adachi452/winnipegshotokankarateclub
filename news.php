@@ -78,7 +78,7 @@ if ($_GET['categoryid'] == 4 )
     <nav>
 		<ul>
 			<li><a href = "index.php">Home Page</a></li>
-			<li><a href = "news.php?categoryid=4">News</a></li>
+			<li><a href = "news.php?categoryid=4&p=recent-posts">News</a></li>
 			<li><a href = "instructors.php">Instructors</a></li>
 			<li><a href = "logout.php">Logout</a></li>
 		</ul>
@@ -97,7 +97,7 @@ if ($_GET['categoryid'] == 4 )
 	<nav id = "categories">
 		<ul>
 	<?php while($row = $statement2->fetch()): ?>
-			<li><a href = <?= "news.php?categoryid=" . $row['categoryid'] ?> ><?= $row['categoryname']?></a></li>
+			<li><a href = <?= "news.php?categoryid=" . $row['categoryid'] . "&p=" . (str_replace(' ', '-', strtolower($row['categoryname']))) ?>><?= $row['categoryname']?></a></li>
 	<?php endwhile ?>
 			<li><a href="addcategory.php">New Category</a></li>
 		</ul>
@@ -144,7 +144,7 @@ if ($_GET['categoryid'] == 4 )
 		<ul>
 			<li><a href = "admin.php">Admin</a></li>
 			<li><a href = "index.php">Home Page</a></li>
-			<li><a href = "news.php?categoryid=4">News</a></li>
+			<li><a href = "news.php?categoryid=4&p=recent-posts">News</a></li>
 			<li><a href = "instructors.php">Instructors</a></li>
 			<li><a href = "logout.php">Logout</a></li>
 		</ul>
@@ -208,7 +208,7 @@ if ($_GET['categoryid'] == 4 )
 	<nav>
 		<ul>
 			<li><a href = "index.php">Home Page</a></li>
-			<li><a href = "news.php?categoryid=4">News</a></li>
+			<li><a href = "news.php?categoryid=4&p=recent-posts">News</a></li>
 			<li><a href = "instructors.php">Instructors</a></li>
 			<li><a href = "logout.php">Logout</a></li>
 		</ul>
@@ -273,8 +273,8 @@ if ($_GET['categoryid'] == 4 )
 <footer>
 	<div id="links2">
 		<a href="index.html" class = "links2"> Home | </a>
-		<a href="news.php" class = "links2">News | </a>
-		<a href="contact.html" class = "links2">Contact  </a>
+		<a href = "news.php?categoryid=4&p=recent-posts" class = "links2">News | </a>
+		<a href="login.php" class = "links2">Instructors  </a>
 	</div>	
 	<div id="line2">
 		<p class = "line2"> Copyright © 2021 <a href="https://iskf.com/club-directory/pan-america/canada/" class="link3"> International Shotokan Karate Federation</a> </p>

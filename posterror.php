@@ -25,6 +25,8 @@
 
 	<h6><a href="news.php?categoryid=4" class = "links9"> Back </a></h6>
 
+
+
 <footer>
 	<div id="links2">
 		<a href="index.php" class = "links2"> Home | </a>

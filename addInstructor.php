@@ -52,7 +52,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Add Instructor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel = "stylesheet" type = "text/css" href = "shotokanstyles.css" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
