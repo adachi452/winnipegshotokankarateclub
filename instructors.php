@@ -138,7 +138,7 @@
             
             <div class="blog_post" >
             	<img src=<?="uploads/" . $row['picture'] ?> alt="Instructor">
-                <h2>Name: <?= $row['fullname'] ?><small><?= " - " ?><a href="editInstructors.php?id=<?= $row['instructorid'] ?>">edit</a> </small></h2> 
+                <h2>Name: <?= $row['fullname'] ?></h2> 
                 <h2>Rank: <?= $row['rank'] ?></h2>
                 <h2>Mentor: <?= $row['mentor'] ?></h2>
                 <h2>Karate Experience: <?= $row['karateexperience'] ?></h2>               
