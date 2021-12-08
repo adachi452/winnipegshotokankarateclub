@@ -9,7 +9,9 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Thank you!</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel = "stylesheet" type = "text/css" href = "shotokanstyles.css" />
 	<script src="formValidate.js"></script>
 </head>
@@ -21,7 +23,7 @@
 
 	<h6><p>There was an error with your post, please make sure all fields are filled out and try again...</p></h6>
 
-	<h6><a href="editusers.php" class = "links9"> Login </a></h6>
+	<h6><a href="news.php?categoryid=4" class = "links9"> Back </a></h6>
 
 <footer>
 	<div id="links2">
