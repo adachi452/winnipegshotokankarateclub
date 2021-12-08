@@ -19,7 +19,9 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Instructors</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel = "stylesheet" type = "text/css" href = "shotokanstyles.css" />
 </head>
 <body>
@@ -135,7 +137,7 @@
         <?php while($row = $statement->fetch()): ?>
             
             <div class="blog_post" >
-            	<img src=<?="uploads/" . $row['picture'] ?>>
+            	<img src=<?="uploads/" . $row['picture'] ?> alt="Instructor">
                 <h2>Name: <?= $row['fullname'] ?><small><?= " - " ?><a href="editInstructors.php?id=<?= $row['instructorid'] ?>">edit</a> </small></h2> 
                 <h2>Rank: <?= $row['rank'] ?></h2>
                 <h2>Mentor: <?= $row['mentor'] ?></h2>
@@ -146,8 +148,6 @@
         <?php endwhile ?>
     
     <?php endif ?>
-</div>
-</div>
 
 </fieldset><br>
 
