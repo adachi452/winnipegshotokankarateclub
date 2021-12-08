@@ -35,10 +35,12 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>News</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="shotokanstyles.css" />
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
@@ -98,7 +100,7 @@
     <ul id="menu">
     <li><a href="news.php?categoryid=4" >Back</a></li>
 </ul> <!-- END div id="menu" -->
-  <div id="all_blogs">
+  <div id="all_blogs3">
     <div class="blog_post">
       <h2><?= $row['Title'] ?></h2>
       <p><small><?= $row['Time'] ?></small></p>
@@ -123,7 +125,7 @@
     <div id="links2">
         <a href="index.php" class = "links2"> Home | </a>
         <a href="news.php?categoryid=4" class = "links2">News | </a>
-        <a href="contact.html" class = "links2">Contact  </a>
+        <a href="instructors.php" class = "links2">Instructors </a>
     </div>  
     <div id="line2">
         <p class = "line2"> Copyright © 2021 <a href="https://iskf.com/club-directory/pan-america/canada/" class="link3"> International Shotokan Karate Federation</a> </p>
