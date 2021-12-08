@@ -1,5 +1,6 @@
 <?php
 
+
         if ($_POST['command'] == 'Submit')
         {
             validate();
@@ -245,6 +246,8 @@
     function comment(){
 
     require('connect.php');
+
+    session_start();
     
     if ($_POST && isset($_POST['comment'])){
          
@@ -253,7 +256,7 @@
         $userid = filter_input(INPUT_POST, 'userid', FILTER_SANITIZE_NUMBER_INT);
         $postid = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
         $user_captcha = filter_input(INPUT_POST, 'captcha_challenge');
-        $captcha = filter_input(INPUT_POST, 'captcha_text');
+        $captcha = $_SESSION['captcha_text'];
 
         $query = "INSERT INTO comments (userid, comment, postid, username) VALUES (:userid, :comment, :postid, :username)";
         $statement = $db->prepare($query);
@@ -266,13 +269,13 @@
 
         if($comment == "" || $user_captcha == "" || $user_captcha != $captcha) 
         {            
-            header('Location: posterror.php');            
+            header('Location: insert.php');            
             exit();            
         }
 
         elseif($statement->execute())
         {          
-            header('Location: news.php?categoryid=4');
+            header('Location: news.php?categoryid=4');            
             exit();
         }    
      }
@@ -534,7 +537,8 @@
 </head>
 <body>
 
-            <h1><? $check ?></h1>
+            <pre><?=print_r($_POST)?></pre>
+            <pre><?=print_r($_SESSION)?></pre>
 
       
 
