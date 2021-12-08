@@ -26,38 +26,9 @@
 
 
 
-if ($_GET['categoryid'] == 1) 
+if ($_GET['categoryid'] == 4 ) 
     {
-    	$query = "SELECT * FROM blog WHERE categoryid =:categoryid ORDER BY Time DESC LIMIT 5";
-
-        // A PDO::Statement is prepared from the query.
-        $statement = $db->prepare($query);
-        $statement->bindValue(':categoryid', $_GET['categoryid']);
-
-        // Execution on the DB server is delayed until we execute().
-        $statement->execute(); 
-    }
-    elseif ($_GET['categoryid'] == 2) 
-    {
-        $query = "SELECT * FROM blog WHERE categoryid =:categoryid ORDER BY Time DESC LIMIT 5";
-
-        $statement = $db->prepare($query);
-        $statement->bindValue(':categoryid', $_GET['categoryid']);
-
-        $statement->execute();
-    }
-    elseif ($_GET['categoryid'] == 3) 
-    {
-        $query = "SELECT * FROM blog WHERE categoryid =:categoryid ORDER BY Time DESC LIMIT 5";
-
-        $statement = $db->prepare($query);
-        $statement->bindValue(':categoryid', $_GET['categoryid']);
-
-        $statement->execute();
-    }
-    elseif ($_GET['categoryid'] == 4)
-    {
-  	 // SQL is written as a String.
+    	// SQL is written as a String.
      $query = "SELECT * FROM blog ORDER BY Time DESC LIMIT 5";
 
      // A PDO::Statement is prepared from the query.
@@ -65,6 +36,18 @@ if ($_GET['categoryid'] == 1)
 
      // Execution on the DB server is delayed until we execute().
      $statement->execute(); 
+    	
+    }    
+    elseif ($_GET['categoryid'] == $_GET['categoryid'])
+    {
+  	 $query = "SELECT * FROM blog WHERE categoryid =:categoryid ORDER BY Time DESC LIMIT 5";
+
+        // A PDO::Statement is prepared from the query.
+        $statement = $db->prepare($query);
+        $statement->bindValue(':categoryid', $_GET['categoryid']);
+
+        // Execution on the DB server is delayed until we execute().
+        $statement->execute(); 
     }
     else
     {
@@ -77,7 +60,9 @@ if ($_GET['categoryid'] == 1)
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>News</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="shotokanstyles.css" />
 
 </head>
@@ -242,7 +227,7 @@ if ($_GET['categoryid'] == 1)
 	<nav id = "categories">
 		<ul>
 	<?php while($row = $statement2->fetch()): ?>
-			<li><a href = <?= "news.php?categoryid=" . $row['categoryid'] ?> ><?= $row['categoryname']?></a></li>
+			<li><a href = <?= "news.php?categoryid" . "{$row['categoryid']}" ?> ><?= $row['categoryname']?></a></li>
 	<?php endwhile ?>
 		</ul>
 	</nav>
@@ -261,7 +246,7 @@ if ($_GET['categoryid'] == 1)
              
             <div class="blog_post">
                 <h2><a href="show.php?id=<?= $row['postid'] ?>"><?= $row['Title'] ?></a></h2>
-                <p><small><?= $date = date($format, strtotime($row['Time'])) . " - " ?></a><a href="comment.php?id=<?= $row['postid'] ?>">comment</a></small></p>
+                <p><small><?= $date = date($format, strtotime($row['Time'])) . " - " ?><a href="comment.php?id=<?= $row['postid'] ?>">comment</a></small></p>
             <div class='blog_content'>
                 <?php if (strlen($row['Content']) > 200) : ?>
                     <?=$row['Content'] = substr($row['Content'], 0, 200) . "..."?> <a href="show.php?id=<?= $row['postid'] ?>">Read More</a>
@@ -278,7 +263,7 @@ if ($_GET['categoryid'] == 1)
     <?php endif ?>
 </div>
 </div>
-</div>
+
 
 </fieldset>
 
