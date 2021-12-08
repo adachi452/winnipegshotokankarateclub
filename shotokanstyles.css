@@ -142,7 +142,7 @@ nav ul li:hover, nav li a:focus
 
 	img
 	{
-		width: 50%
+		width: 50%;
 		height: auto;
 	}
 
@@ -221,7 +221,7 @@ a:active
 
 .intro
 {
-	width:80%
+	width:80%;
 	margin:5px auto;
 	background:white;
 	padding:5px;
@@ -255,4 +255,4 @@ header, section
 {
 	font-family:myFont;
 	src:url("http://www.w3schools.com/css3/Sansation_light.ttf");
-}
+}}
